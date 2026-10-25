@@ -10,6 +10,26 @@
 | 目标版本 | Android 14（API 34） |
 | 技术栈 | Kotlin + AndroidX ConstraintLayout |
 | 许可 | MIT（iperf3 二进制亦为 MIT，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)） |
+| 仓库 | <https://github.com/gitsang/iperf-droid> |
+
+## 获取与安装
+
+```bash
+git clone git@github.com:gitsang/iperf-droid.git
+cd iperf-droid
+```
+
+自行构建：
+
+```bash
+./build.sh                 # 或 ./gradlew assembleDebug
+adb install -r app/build/outputs/apk/debug/app-debug.apk
+```
+
+也可以从 [Releases](https://github.com/gitsang/iperf-droid/releases) 直接下载已构建的 APK 安装到电视。
+
+> 注意：应用首次启动会自动释放对应 ABI 的 iperf3 二进制到应用私有目录，
+> 之后即可完全离线使用。
 
 ## 已知问题与修复
 
