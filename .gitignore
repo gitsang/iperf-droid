@@ -46,3 +46,6 @@ tools/jdk.zip
 tools/gradle.zip
 tools/cmdline-tools.zip
 tools/gh.zip
+
+# WorkBuddy 工作区数据
+.workbuddy/
