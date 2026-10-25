@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">iPerf-TV</string>
+    <string name="title_config">快捷命令配置</string>
+    <string name="title_run">测试运行</string>
+
+    <string name="home_hint">选择下方快捷项即可开始测试（方向键移动，OK 键执行）</string>
+    <string name="empty_shortcuts">暂无快捷命令，点击右上角“配置”添加</string>
+
+    <string name="action_config">配置</string>
+    <string name="action_back">返回首页</string>
+    <string name="action_add">新增快捷命令</string>
+    <string name="action_selfcheck">环境自检</string>
+    <string name="action_edit">编辑</string>
+    <string name="action_up">上移</string>
+    <string name="action_down">下移</string>
+    <string name="action_delete">删除</string>
+    <string name="action_stop">停止</string>
+    <string name="action_back_home">返回首页</string>
+
+    <string name="config_hint">示例：名称“默认服务器”，参数 “-c 192.168.5.200”</string>
+    <string name="dialog_label_name">显示名称</string>
+    <string name="dialog_label_args">iperf3 参数（不含 iperf3 本体）</string>
+    <string name="dialog_label_preset">常用参数模板（点击填入）</string>
+
+    <string name="msg_saved">已保存</string>
+    <string name="msg_deleted">已删除</string>
+    <string name="msg_name_required">名称不能为空</string>
+    <string name="msg_args_required">参数不能为空</string>
+    <string name="msg_delete_confirm">确认删除该快捷命令？</string>
+    <string name="dialog_ok">确定</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="selfcheck_running">正在检测 iperf3 可执行环境，请稍候…</string>
+    <string name="json_progress">测试进行中  %1$d 秒…</string>
+</resources>

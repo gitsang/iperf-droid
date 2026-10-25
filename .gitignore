@@ -1,0 +1,48 @@
+# Gradle
+.gradle/
+build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# 构建产物
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+
+# 输出
+out/
+release/
+
+# 日志与临时文件
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+
+# 签名文件（务必不要提交）
+*.jks
+*.keystore
+keystore.properties
+
+# 本地工具链（JDK / Android SDK 等，解压后体积大，不入库）
+tools/jdk*
+tools/zulu*
+tools/android-sdk/
+tools/gradle-*/
+tools/gh/
+tools/*.zip
+tools/jdk.zip
+tools/gradle.zip
+tools/cmdline-tools.zip
+tools/gh.zip

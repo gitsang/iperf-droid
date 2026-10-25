@@ -1,0 +1,22 @@
+# 统一换行符，避免跨平台协作时出现无意义的整文件 diff
+* text=auto eol=lf
+
+# 二进制资源不做任何转换
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+
+# iperf3 可执行文件必须保持原样，否则会被 Git 破坏导致无法运行
+app/src/main/assets/iperf3/**/iperf3 binary
+
+# Gradle / Android
+*.gradle text eol=lf
+*.gradle.kts text eol=lf
+gradlew text eol=lf
+gradlew.bat text eol=crlf
+gradle/wrapper/gradle-wrapper.jar binary
+gradle-wrapper.properties text eol=lf
+
+# 脚本
+*.sh text eol=lf
