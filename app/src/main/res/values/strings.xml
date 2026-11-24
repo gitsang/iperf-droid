@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">iperf-droid</string>
+    <string name="title_config">Quick command settings</string>
+    <string name="title_run">Test run</string>
+
+    <string name="home_hint">Pick a shortcut below to start a test (arrow keys to move, OK to run)</string>
+    <string name="empty_shortcuts">No shortcuts yet. Press “Settings” in the top-right corner to add one.</string>
+
+    <string name="action_config">Settings</string>
+    <string name="action_back">Back</string>
+    <string name="action_add">New shortcut</string>
+    <string name="action_selfcheck">Self-check</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_up">Up</string>
+    <string name="action_down">Down</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_stop">Stop</string>
+    <string name="action_back_home">Back to home</string>
+
+    <string name="config_hint">Example: name “Default server”, arguments “-c 192.168.5.200”</string>
+    <string name="dialog_label_name">Display name</string>
+    <string name="dialog_label_args">iperf3 arguments (without the iperf3 binary itself)</string>
+    <string name="dialog_label_preset">Common argument presets (tap to fill in)</string>
+
+    <string name="msg_saved">Saved</string>
+    <string name="msg_deleted">Deleted</string>
+    <string name="msg_name_required">Name cannot be empty</string>
+    <string name="msg_args_required">Arguments cannot be empty</string>
+    <string name="msg_delete_confirm">Delete this shortcut?</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="selfcheck_running">Checking whether iperf3 can run here, please wait…</string>
+    <string name="json_progress">Test running  %1$d s…</string>
+
+    <string name="run_stopped">--- Stopped ---</string>
+    <string name="run_stopped_by_back">--- Stopped (press Back again to exit) ---</string>
+    <string name="run_start">Starting: iperf3 %1$s</string>
+    <string name="run_json_hint">Note: in JSON mode iperf3 prints nothing until the test ends; the progress below shows that it is still running.</string>
+    <string name="run_finished">--- Finished (exit=%1$d, elapsed %2$d ms) ---</string>
+    <string name="run_hint">--- Hint: %1$s ---</string>
+    <string name="run_error">--- Error: %1$s ---</string>
+
+    <string name="live_rate">Live %1$.1f Mbit/s</string>
+    <string name="live_elapsed">%1$.0f s elapsed</string>
+    <string name="live_jitter">jitter %1$.2f ms</string>
+    <string name="live_loss">loss %1$.1f%%</string>
+
+    <string name="summary_sender">Sender %1$.2f Mbit/s</string>
+    <string name="summary_receiver">Receiver %1$.2f Mbit/s</string>
+    <string name="summary_retransmits">Retransmits %1$d</string>
+    <string name="summary_jitter">Jitter %1$.2f ms</string>
+    <string name="summary_loss">Loss %1$.2f%%</string>
+    <string name="summary_failed">Failed: %1$s</string>
+
+    <string name="diag_create_stream">iperf3 could not create its data buffer (temp directory not writable).\nThe app sets TMPDIR automatically; if this still happens, open Settings → Self-check for details.</string>
+    <string name="diag_connect">Cannot connect to the server. Make sure an iperf3 server is running on the target IP (iperf3 -s).</string>
+    <string name="diag_listen">Cannot listen on the port; it may already be in use or the app may lack permission.</string>
+    <string name="diag_cpu_affinity">The requested CPU affinity is not valid on this device.</string>
+    <string name="diag_permission">Permission denied. The system security policy may be blocking execution of the bundled binary.</string>
+
+    <string name="selfcheck_binary">Binary: %1$s (%2$d bytes)</string>
+    <string name="selfcheck_executable">Executable: %1$s</string>
+    <string name="selfcheck_tmpdir">Temp dir TMPDIR: %1$s</string>
+    <string name="selfcheck_exit_code">Exit code: %1$d</string>
+    <string name="selfcheck_passed">Self-check passed, iperf3 runs correctly</string>
+    <string name="selfcheck_failed">Self-check failed (exit code %1$d), please check the log</string>
+    <string name="selfcheck_exception">Self-check error: %1$s</string>
+    <string name="selfcheck_exception_line">Exception: %1$s</string>
+
+    <string name="default_shortcut_server">Default server</string>
+    <string name="default_shortcut_reverse">Reverse test</string>
+    <string name="default_shortcut_json">JSON 10 s</string>
+</resources>

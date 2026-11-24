@@ -1,0 +1,51 @@
+# Gradle
+.gradle/
+build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Build output
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+
+# Outputs
+out/
+release/
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+
+# Signing files (never commit these)
+*.jks
+*.keystore
+keystore.properties
+
+# Local toolchain (JDK / Android SDK etc.; large when unpacked, not tracked)
+tools/jdk*
+tools/zulu*
+tools/android-sdk/
+tools/gradle-*/
+tools/gh/
+tools/*.zip
+tools/jdk.zip
+tools/gradle.zip
+tools/cmdline-tools.zip
+tools/gh.zip
+
+# WorkBuddy workspace data
+.workbuddy/

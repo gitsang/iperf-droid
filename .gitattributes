@@ -1,0 +1,22 @@
+# Normalise line endings to avoid whole-file diffs across platforms
+* text=auto eol=lf
+
+# Binary assets are never converted
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+
+# The iperf3 executables must stay byte-identical, otherwise Git corrupts them and they will not run
+app/src/main/assets/iperf3/**/iperf3 binary
+
+# Gradle / Android
+*.gradle text eol=lf
+*.gradle.kts text eol=lf
+gradlew text eol=lf
+gradlew.bat text eol=crlf
+gradle/wrapper/gradle-wrapper.jar binary
+gradle-wrapper.properties text eol=lf
+
+# Scripts
+*.sh text eol=lf
