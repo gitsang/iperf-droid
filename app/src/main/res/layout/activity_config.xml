@@ -8,43 +8,32 @@
 
     <TextView
         android:id="@+id/tvConfigTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/screen_margin"
         android:layout_marginTop="28dp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:text="@string/title_config"
         android:textColor="@color/text_primary"
         android:textSize="@dimen/title_size"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/btnBack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvConfigSub"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/screen_margin"
-        android:layout_marginTop="6dp"
-        android:text="@string/config_hint"
-        android:textColor="@color/text_secondary"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvConfigTitle" />
-
-    <TextView
+    <!-- Every action on this screen is an icon, so the list keeps its width on a phone. -->
+    <ImageView
         android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="44dp"
+        android:layout_width="@dimen/icon_button_size"
+        android:layout_height="@dimen/icon_button_size"
         android:layout_marginEnd="@dimen/screen_margin_end"
-        android:background="@drawable/bg_focusable_chip"
+        android:background="@drawable/bg_icon_button"
+        android:contentDescription="@string/action_back"
         android:focusable="true"
-        android:gravity="center"
-        android:paddingStart="22dp"
-        android:paddingEnd="22dp"
-        android:text="@string/action_back"
-        android:textColor="@color/text_primary"
-        android:textSize="17sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/tvConfigTitle"
+        android:padding="@dimen/icon_button_padding"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_arrow_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/tvConfigTitle" />
 
@@ -60,39 +49,35 @@
         app:layout_constraintBottom_toTopOf="@id/btnAdd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvConfigSub" />
+        app:layout_constraintTop_toBottomOf="@id/tvConfigTitle" />
 
-    <TextView
+    <ImageView
         android:id="@+id/btnAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/icon_button_size"
+        android:layout_height="@dimen/icon_button_size"
         android:layout_marginStart="@dimen/screen_margin"
-        android:layout_marginBottom="28dp"
-        android:background="@drawable/bg_focusable_chip"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_icon_button"
+        android:contentDescription="@string/action_add"
         android:focusable="true"
-        android:gravity="center"
-        android:paddingStart="26dp"
-        android:paddingEnd="26dp"
-        android:text="@string/action_add"
-        android:textColor="@color/text_primary"
-        android:textSize="18sp"
+        android:padding="@dimen/icon_button_padding"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
+    <ImageView
         android:id="@+id/btnSelfCheck"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="28dp"
-        android:background="@drawable/bg_focusable_chip"
+        android:layout_width="@dimen/icon_button_size"
+        android:layout_height="@dimen/icon_button_size"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_icon_button"
+        android:contentDescription="@string/action_selfcheck"
         android:focusable="true"
-        android:gravity="center"
-        android:paddingStart="26dp"
-        android:paddingEnd="26dp"
-        android:text="@string/action_selfcheck"
-        android:textColor="@color/text_primary"
-        android:textSize="18sp"
+        android:padding="@dimen/icon_button_padding"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_check_circle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/btnAdd" />
 

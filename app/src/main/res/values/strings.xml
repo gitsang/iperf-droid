@@ -4,8 +4,7 @@
     <string name="title_config">Quick command settings</string>
     <string name="title_run">Test run</string>
 
-    <string name="home_hint">Pick a shortcut below to start a test (arrow keys to move, OK to run)</string>
-    <string name="empty_shortcuts">No shortcuts yet. Press “Settings” in the top-right corner to add one.</string>
+    <string name="empty_shortcuts">No shortcuts yet. Open settings, then press the + button to add one.</string>
 
     <string name="action_config">Settings</string>
     <string name="action_back">Back</string>
@@ -18,7 +17,6 @@
     <string name="action_stop">Stop</string>
     <string name="action_back_home">Back to home</string>
 
-    <string name="config_hint">Example: name “Default server”, arguments “-c 192.168.5.200”</string>
     <string name="dialog_label_name">Display name</string>
     <string name="dialog_label_args">iperf3 arguments (without the iperf3 binary itself)</string>
     <string name="dialog_label_preset">Common argument presets (tap to fill in)</string>

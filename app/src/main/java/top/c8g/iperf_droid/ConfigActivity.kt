@@ -36,9 +36,9 @@ class ConfigActivity : AppCompatActivity() {
             adapter = this@ConfigActivity.adapter
         }
 
-        findViewById<TextView>(R.id.btnBack).setOnClickListener { finish() }
-        findViewById<TextView>(R.id.btnAdd).setOnClickListener { showEditDialog(null) }
-        findViewById<TextView>(R.id.btnSelfCheck).setOnClickListener { runSelfCheck() }
+        findViewById<ImageView>(R.id.btnBack).setOnClickListener { finish() }
+        findViewById<ImageView>(R.id.btnAdd).setOnClickListener { showEditDialog(null) }
+        findViewById<ImageView>(R.id.btnSelfCheck).setOnClickListener { runSelfCheck() }
     }
 
     /** Self-check: confirms the bundled iperf3 can run on this TV. */

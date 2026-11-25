@@ -17,20 +17,11 @@
         android:textColor="@color/text_primary"
         android:textSize="@dimen/title_size"
         android:textStyle="bold"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintEnd_toStartOf="@id/btnConfig"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvHeaderSub"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/screen_margin"
-        android:layout_marginTop="4dp"
-        android:text="@string/home_hint"
-        android:textColor="@color/text_secondary"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvHeaderTitle" />
 
     <!-- Settings entry in the top-right corner: an icon, so it does not compete with the title for
          width on a narrow screen. Kept top-aligned with the title rather than baseline-aligned,
@@ -61,7 +52,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvHeaderSub" />
+        app:layout_constraintTop_toBottomOf="@id/tvHeaderTitle" />
 
     <TextView
         android:id="@+id/tvEmpty"
