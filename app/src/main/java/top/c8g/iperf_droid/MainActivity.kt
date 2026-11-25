@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -41,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        findViewById<TextView>(R.id.btnConfig).setOnClickListener {
+        findViewById<ImageView>(R.id.btnConfig).setOnClickListener {
             startActivity(Intent(this, ConfigActivity::class.java))
         }
     }
@@ -54,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         if (adapter.itemCount > 0) {
             recycler.post { recycler.getChildAt(0)?.requestFocus() }
         } else {
-            findViewById<TextView>(R.id.btnConfig).requestFocus()
+            findViewById<ImageView>(R.id.btnConfig).requestFocus()
         }
     }
 

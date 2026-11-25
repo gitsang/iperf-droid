@@ -5,4 +5,10 @@
     <dimen name="screen_margin_end">40dp</dimen>
     <dimen name="grid_padding">40dp</dimen>
     <dimen name="title_size">30sp</dimen>
+
+    <dimen name="icon_button_size">48dp</dimen>
+    <dimen name="icon_button_padding">12dp</dimen>
+
+    <dimen name="card_padding">18dp</dimen>
+    <dimen name="card_outer_margin">8dp</dimen>
 </resources>

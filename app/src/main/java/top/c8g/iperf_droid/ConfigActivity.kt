@@ -196,10 +196,10 @@ class ConfigActivity : AppCompatActivity() {
 
                 up.setOnClickListener { move(item, -1) }
                 down.setOnClickListener { move(item, 1) }
-                itemView.findViewById<TextView>(R.id.btnEdit).setOnClickListener {
+                itemView.findViewById<ImageView>(R.id.btnEdit).setOnClickListener {
                     showEditDialog(item)
                 }
-                itemView.findViewById<TextView>(R.id.btnDelete).setOnClickListener {
+                itemView.findViewById<ImageView>(R.id.btnDelete).setOnClickListener {
                     confirmDelete(item)
                 }
             }
