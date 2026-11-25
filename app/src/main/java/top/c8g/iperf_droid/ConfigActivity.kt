@@ -189,12 +189,16 @@ class ConfigActivity : AppCompatActivity() {
             fun bind(item: Shortcut) {
                 name.text = item.name
                 args.text = item.displayCommand
-                itemView.findViewById<TextView>(R.id.btnUp).setOnClickListener {
-                    move(item, -1)
-                }
-                itemView.findViewById<TextView>(R.id.btnDown).setOnClickListener {
-                    move(item, 1)
-                }
+
+                val up = itemView.findViewById<TextView>(R.id.btnUp)
+                val down = itemView.findViewById<TextView>(R.id.btnDown)
+                // The vectors carry android:tint="@color/text_primary", so the arrows stay white
+                // against the accent background the chip switches to on focus.
+                up.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_arrow_up, 0, 0, 0)
+                down.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_arrow_down, 0, 0, 0)
+
+                up.setOnClickListener { move(item, -1) }
+                down.setOnClickListener { move(item, 1) }
                 itemView.findViewById<TextView>(R.id.btnEdit).setOnClickListener {
                     showEditDialog(item)
                 }

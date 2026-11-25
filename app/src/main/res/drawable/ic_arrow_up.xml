@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Up arrow, tinted by the surrounding button's text color. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="@color/text_primary">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M12,5.5l6.5,6.5l-1.6,1.6L13,9.7V19h-2V9.7l-3.9,3.9L5.5,12z" />
+</vector>

@@ -12,8 +12,8 @@
     <string name="action_add">New shortcut</string>
     <string name="action_selfcheck">Self-check</string>
     <string name="action_edit">Edit</string>
-    <string name="action_up">Up</string>
-    <string name="action_down">Down</string>
+    <string name="action_move_up">Move up</string>
+    <string name="action_move_down">Move down</string>
     <string name="action_delete">Delete</string>
     <string name="action_stop">Stop</string>
     <string name="action_back_home">Back to home</string>
