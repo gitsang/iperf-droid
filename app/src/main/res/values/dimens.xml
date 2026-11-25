@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Defaults: TVs and tablets. Wide margins so the UI does not hug the bezel. -->
-    <dimen name="screen_margin">48dp</dimen>
-    <dimen name="screen_margin_end">40dp</dimen>
-    <dimen name="grid_padding">40dp</dimen>
-    <dimen name="title_size">30sp</dimen>
+    <!-- Defaults: phones. Tighter margins, because 48dp of leading space wastes a fifth of the
+         width in portrait, and a smaller title so it does not wrap next to the Settings button. -->
+    <dimen name="screen_margin">20dp</dimen>
+    <dimen name="screen_margin_end">16dp</dimen>
+    <dimen name="grid_padding">16dp</dimen>
+    <dimen name="title_size">24sp</dimen>
 </resources>
