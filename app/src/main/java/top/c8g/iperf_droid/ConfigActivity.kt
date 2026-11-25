@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -190,12 +191,8 @@ class ConfigActivity : AppCompatActivity() {
                 name.text = item.name
                 args.text = item.displayCommand
 
-                val up = itemView.findViewById<TextView>(R.id.btnUp)
-                val down = itemView.findViewById<TextView>(R.id.btnDown)
-                // The vectors carry android:tint="@color/text_primary", so the arrows stay white
-                // against the accent background the chip switches to on focus.
-                up.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_arrow_up, 0, 0, 0)
-                down.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_arrow_down, 0, 0, 0)
+                val up = itemView.findViewById<ImageView>(R.id.btnUp)
+                val down = itemView.findViewById<ImageView>(R.id.btnDown)
 
                 up.setOnClickListener { move(item, -1) }
                 down.setOnClickListener { move(item, 1) }
