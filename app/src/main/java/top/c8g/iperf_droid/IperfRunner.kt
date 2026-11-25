@@ -37,9 +37,19 @@ class IperfRunner(private val context: Context) {
         val nativeDir = File(context.applicationInfo.nativeLibraryDir)
         val candidate = File(nativeDir, LIB_NAME)
         if (candidate.exists() && candidate.length() > 0L) return candidate
+
+        // Everything the user cannot see but we would need to debug this: what the device claims to
+        // support, what the installer actually unpacked, and whether the APK keeps its libraries
+        // inside the archive (nativeLibraryDir is then not a real directory).
+        val unpacked = nativeDir.list()?.sorted()?.joinToString(",") ?: "<unreadable>"
         throw IllegalStateException(
-            "Bundled iperf3 not found for this ABI: " +
-                    "${Build.SUPPORTED_ABIS?.joinToString(",")} (looked in $nativeDir)"
+            "Bundled iperf3 is missing.\n" +
+                    "ABIs: ${Build.SUPPORTED_ABIS?.joinToString(",")}\n" +
+                    "nativeLibraryDir: $nativeDir\n" +
+                    "nativeLibraryDir exists: ${nativeDir.exists()}\n" +
+                    "contents: $unpacked\n" +
+                    "expected: $LIB_NAME\n" +
+                    "This build packages iperf3 for arm64-v8a, armeabi-v7a, x86 and x86_64 only."
         )
     }
 

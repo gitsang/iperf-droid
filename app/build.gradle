@@ -11,8 +11,15 @@ android {
         applicationId "top.c8g.iperf_droid"
         minSdk 24
         targetSdk 34
-        versionCode 2
-        versionName "1.5.0"
+        // Version scheme: semver 2.0.0.
+        //   versionName is the human-facing semver, bumped per release as
+        //     MAJOR - breaking change (e.g. the applicationId, or a config format the user must act on)
+        //     MINOR - new functionality, backwards compatible (new screen, new option)
+        //     PATCH - backwards compatible fixes only (bug fixes, wording, styling)
+        //   versionCode is a separate integer that Android requires to increase on every upload;
+        //   it is bumped by one per release and never reused.
+        versionCode 3
+        versionName "1.6.0"
     }
 
     buildTypes {
@@ -30,15 +37,16 @@ android {
         jvmTarget = '17'
     }
     // iperf3 ships as a native library so the installer unpacks it into nativeLibraryDir, the
-    // only place Android 10+ allows the app to exec a bundled binary from. Keep it uncompressed
-    // so it is mapped straight out of the APK instead of being copied.
+    // only place Android 10+ allows the app to exec a bundled binary from.
+    //
+    // useLegacyPackaging must stay true: it sets android:extractNativeLibs="true", which makes the
+    // installer copy the .so files onto the filesystem. With it false the libraries stay inside the
+    // APK and nativeLibraryDir points at "base.apk!/lib/<abi>", a ZIP-internal path that is not a
+    // real file, so the binary could never be opened or executed.
     packaging {
         jniLibs {
-            useLegacyPackaging = false
+            useLegacyPackaging = true
         }
-    }
-    androidResources {
-        noCompress 'so'
     }
 }
 
