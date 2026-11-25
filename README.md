@@ -12,7 +12,7 @@ A graphical iperf3 tool for Android mobile and TV.
 | ---------- | ---------------------------------------- |
 | App name   | iperf-droid                              |
 | Package    | `top.c8g.iperf_droid`                 |
-| Minimum    | Android 5.0 (API 21)                     |
+| Minimum    | Android 7.0 (API 24)                     |
 | Target     | Android 14 (API 34)                      |
 | Stack      | Kotlin + AndroidX ConstraintLayout       |
 | Repository | <https://github.com/gitsang/iperf-droid> |
@@ -25,7 +25,7 @@ A graphical iperf3 tool for Android mobile and TV.
 - **Live output**: the run screen scrolls iperf3's line-by-line output with timestamps, and "Stop" in the top right interrupts it. The live rate bar at the top refreshes on every interval.
 - **Smart hints**: for common failures (cannot reach the server, port in use, permission denied, ...) the app shows a concrete troubleshooting suggestion.
 - **Environment self-check**: one tap on the configuration screen verifies that iperf3 can execute; run it once after installing on the line.
-- **Bundled iperf3 binaries**: `assets` ships statically compiled iperf3 (v3.9) for arm64-v8a / armeabi-v7a / x86_64 / x86. On first run it is unpacked into the app's private directory and executed, with **no root required**.
+- **Bundled iperf3 binaries**: iperf3 3.9 is shipped for arm64-v8a / armeabi-v7a / x86_64 / x86 as a native library (`jniLibs`), so the installer unpacks it into an executable location. No root required, and no extraction on first run.
 - **TV artwork**: `tv_banner` ships a landscape banner at five densities from 160×90 to 640×360; the launcher icon comes in square and round variants, and Android 8.0+ automatically uses the adaptive icon (separate foreground/background, theme-icon tinting supported).
 
 ## Usage

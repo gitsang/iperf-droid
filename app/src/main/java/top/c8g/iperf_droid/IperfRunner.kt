@@ -9,9 +9,8 @@ import java.io.InputStreamReader
 import java.util.concurrent.Executors
 
 /**
- * Extracts the iperf3 executable from assets into the app's private directory and runs it as a
- * child process. The whole run happens on a thread pool and live output is pushed to the UI
- * through callbacks.
+ * Runs the bundled iperf3 executable as a child process. The whole run happens on a thread pool
+ * and live output is pushed to the UI through callbacks.
  */
 class IperfRunner(private val context: Context) {
 
@@ -24,36 +23,28 @@ class IperfRunner(private val context: Context) {
     private val executor = Executors.newSingleThreadExecutor()
 
     /**
-     * Extracts the iperf3 matching the current device ABI from assets into the private directory
-     * (needed on first run, reused afterwards). Falls back to arm64-v8a when no ABI matches.
+     * Returns the bundled iperf3 executable for the current device ABI.
+     *
+     * The binary ships as a native library (`jniLibs/<abi>/libiperf3.so`) rather than as an asset,
+     * because Android 10+ forbids executing files from the app's own data directory even after
+     * chmod +x (the W^X restriction). Files under the native library directory are unpacked by the
+     * installer and mounted executable, so they can be exec'd directly.
+     *
+     * The `.so` suffix is only there to make the packaging tooling treat the file as a library; the
+     * content is an ordinary ELF executable, which the loader runs happily.
      */
     fun ensureBinary(): File {
-        val dir = File(context.filesDir, "bin").apply { mkdirs() }
-        val target = File(dir, "iperf3")
-        val abi = pickAbi()
-        val assetPath = "iperf3/$abi/iperf3"
-        val marker = File(dir, ".abi")
-        val needExtract = !target.exists() || target.length() == 0L ||
-                !marker.exists() || marker.readText() != assetPath
-        if (needExtract) {
-            context.assets.open(assetPath).use { input ->
-                target.outputStream().use { output -> input.copyTo(output) }
-            }
-            target.setExecutable(true, false)
-            target.setReadable(true, false)
-            marker.writeText(assetPath)
-        }
-        return target
+        val nativeDir = File(context.applicationInfo.nativeLibraryDir)
+        val candidate = File(nativeDir, LIB_NAME)
+        if (candidate.exists() && candidate.length() > 0L) return candidate
+        throw IllegalStateException(
+            "Bundled iperf3 not found for this ABI: " +
+                    "${Build.SUPPORTED_ABIS?.joinToString(",")} (looked in $nativeDir)"
+        )
     }
 
-    private fun pickAbi(): String {
-        val supported = Build.SUPPORTED_ABIS ?: emptyArray()
-        val preferred = listOf("arm64-v8a", "armeabi-v7a", "x86_64", "x86")
-        for (p in preferred) {
-            if (supported.contains(p)) return p
-        }
-        return "arm64-v8a"
-    }
+    /** Human-readable path of the bundled binary, for the self-check screen. */
+    fun binaryPath(): String = File(context.applicationInfo.nativeLibraryDir, LIB_NAME).absolutePath
 
     /**
      * Runs one test. [args] looks like "-c 192.168.5.200 -t 10".
@@ -124,6 +115,7 @@ class IperfRunner(private val context: Context) {
 
     companion object {
         private const val TAG = "IperfRunner"
+        private const val LIB_NAME = "libiperf3.so"
 
         /**
          * When setting up a data stream iperf3 mkstemp()s a buffer file in a directory taken from

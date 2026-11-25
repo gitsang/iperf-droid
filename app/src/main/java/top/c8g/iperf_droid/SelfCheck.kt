@@ -42,7 +42,7 @@ class SelfCheck(private val context: Context) {
                     .redirectErrorStream(true)
                     .apply {
                         val tmp = File(context.cacheDir, "tmp").apply { mkdirs() }
-                        environment()["TMPDIR"] = tmp.absolutePath
+                        environment().putAll(IperfRunner.tempEnv(tmp))
                     }
                     .start()
 

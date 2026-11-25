@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "top.c8g.iperf_droid"
-        minSdk 21
+        minSdk 24
         targetSdk 34
         versionCode 2
         versionName "1.5.0"
@@ -29,14 +29,16 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
-    // iperf3 is a linux/arm64 executable; package it byte-for-byte as-is
-    androidResources {
-        noCompress 'so'
-    }
+    // iperf3 ships as a native library so the installer unpacks it into nativeLibraryDir, the
+    // only place Android 10+ allows the app to exec a bundled binary from. Keep it uncompressed
+    // so it is mapped straight out of the APK instead of being copied.
     packaging {
         jniLibs {
-            useLegacyPackaging = true
+            useLegacyPackaging = false
         }
+    }
+    androidResources {
+        noCompress 'so'
     }
 }
 
