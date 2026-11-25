@@ -18,8 +18,8 @@ android {
         //     PATCH - backwards compatible fixes only (bug fixes, wording, styling)
         //   versionCode is a separate integer that Android requires to increase on every upload;
         //   it is bumped by one per release and never reused.
-        versionCode 5
-        versionName "1.6.2"
+        versionCode 6
+        versionName "1.6.3"
     }
 
     buildTypes {
