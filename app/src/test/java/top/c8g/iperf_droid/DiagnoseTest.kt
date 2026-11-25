@@ -22,6 +22,7 @@ class DiagnoseTest {
         override fun listen() = "cannot listen"
         override fun cpuAffinity() = "invalid cpu affinity"
         override fun permission() = "permission denied"
+        override fun controlSocket() = "control connection dropped"
     }
 
     @Test
@@ -38,6 +39,23 @@ class DiagnoseTest {
         assertEquals(
             ResultParser.Diagnosis.CONNECT,
             parser.diagnose("iperf3: error - unable to connect to server: Connection refused")
+        )
+    }
+
+    @Test
+    fun `detects the control socket dropping mid-test`() {
+        val out = "iperf3: error - control socket has closed unexpectedly"
+        val diagnosis = parser.diagnose(out)
+        assertNotNull(diagnosis)
+        assertEquals(ResultParser.Diagnosis.CONTROL_SOCKET, diagnosis)
+        assertEquals("control connection dropped", parser.hint(diagnosis!!, text))
+    }
+
+    @Test
+    fun `detects a control socket read failure`() {
+        assertEquals(
+            ResultParser.Diagnosis.CONTROL_SOCKET,
+            parser.diagnose("iperf3: error - unable to read from the control socket")
         )
     }
 

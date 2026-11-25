@@ -25,6 +25,7 @@ class ResultParser {
         fun listen(): String
         fun cpuAffinity(): String
         fun permission(): String
+        fun controlSocket(): String
     }
 
     /** Known iperf3 runtime failures that have a dedicated hint. */
@@ -33,7 +34,8 @@ class ResultParser {
         CONNECT,
         LISTEN,
         CPU_AFFINITY,
-        PERMISSION
+        PERMISSION,
+        CONTROL_SOCKET
     }
 
     data class Summary(
@@ -124,6 +126,16 @@ class ResultParser {
         if (output.contains("Permission denied")) {
             return Diagnosis.PERMISSION
         }
+        // The client's TCP control connection died mid-test. Most often the server was not an
+        // iperf3 server (or a much older/newer one), or something on the path reset the
+        // connection. Checked after the connect/listen cases because those print more specific
+        // text first.
+        if (output.contains("control socket has closed unexpectedly") ||
+            output.contains("unable to read from the control socket") ||
+            output.contains("unable to write to the control socket")
+        ) {
+            return Diagnosis.CONTROL_SOCKET
+        }
         return null
     }
 
@@ -134,6 +146,7 @@ class ResultParser {
         Diagnosis.LISTEN -> text.listen()
         Diagnosis.CPU_AFFINITY -> text.cpuAffinity()
         Diagnosis.PERMISSION -> text.permission()
+        Diagnosis.CONTROL_SOCKET -> text.controlSocket()
     }
 
     /** Builds a one-line human-readable summary. */

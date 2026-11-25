@@ -1,5 +1,6 @@
 package top.c8g.iperf_droid
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -14,6 +15,11 @@ import java.util.Locale
 /**
  * Run screen: shows iperf3 output live. "Stop" in the top-right corner interrupts the test and
  * "Back to home" in the top-right corner returns to the shortcut list.
+ *
+ * Rotation is handled in place (android:configChanges in the manifest) instead of letting the
+ * activity be recreated. A running iperf3 process is owned by this activity, so recreating it would
+ * destroy the process mid-test and the client would report
+ * "control socket has closed unexpectedly".
  */
 class RunActivity : AppCompatActivity(), IperfRunner.Callback {
 
@@ -78,6 +84,9 @@ class RunActivity : AppCompatActivity(), IperfRunner.Callback {
 
         override fun permission(): String =
             this@RunActivity.getString(R.string.diag_permission)
+
+        override fun controlSocket(): String =
+            this@RunActivity.getString(R.string.diag_control_socket)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -120,6 +129,16 @@ class RunActivity : AppCompatActivity(), IperfRunner.Callback {
         stopTicker()
         job?.cancel()
         super.onDestroy()
+    }
+
+    /**
+     * Called on rotation because the manifest declares configChanges. The layout is not re-inflated,
+     * so re-apply what depends on the new width: the screen margins come from a w600dp resource that
+     * changed bucket, and the log has to be scrolled back to the bottom.
+     */
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        scroll.post { scroll.fullScroll(ScrollView.FOCUS_DOWN) }
     }
 
     /** The Back key first stops a running test; a second press exits. */

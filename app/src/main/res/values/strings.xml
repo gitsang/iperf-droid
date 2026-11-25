@@ -58,6 +58,7 @@
     <string name="diag_listen">Cannot listen on the port; it may already be in use or the app may lack permission.</string>
     <string name="diag_cpu_affinity">The requested CPU affinity is not valid on this device.</string>
     <string name="diag_permission">Permission denied. The system security policy may be blocking execution of the bundled binary.</string>
+    <string name="diag_control_socket">The connection to the server dropped mid-test. Check that the target really runs iperf3 (not plain iperf2), that client and server versions are compatible, and that no firewall or NAT idle-timeout is resetting the connection. Also confirm the test duration is shorter than any such timeout.</string>
 
     <string name="selfcheck_binary">Binary: %1$s (%2$d bytes)</string>
     <string name="selfcheck_executable">Executable: %1$s</string>

@@ -21,6 +21,7 @@ class ResultParserTest {
         override fun listen() = "cannot listen"
         override fun cpuAffinity() = "invalid cpu affinity"
         override fun permission() = "permission denied"
+        override fun controlSocket() = "control connection dropped"
     }
 
     private val tcpJson = """
