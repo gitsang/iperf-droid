@@ -1,4 +1,4 @@
-package com.example.iperfdroid
+package top.c8g.iperf_droid
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
@@ -16,14 +16,14 @@ class TempEnvTest {
 
     @Test
     fun `child process environment contains TMPDIR`() {
-        val dir = File("/data/user/0/com.example.iperfdroid/cache/tmp")
+        val dir = File("/data/user/0/top.c8g.iperf_droid/cache/tmp")
         val env = IperfRunner.tempEnv(dir)
         assertEquals(dir.absolutePath, env["TMPDIR"])
     }
 
     @Test
     fun `sets both TMP and TEMP to cover the different implementation branches`() {
-        val dir = File("/data/user/0/com.example.iperfdroid/cache/tmp")
+        val dir = File("/data/user/0/top.c8g.iperf_droid/cache/tmp")
         val env = IperfRunner.tempEnv(dir)
         assertEquals(dir.absolutePath, env["TMP"])
         assertEquals(dir.absolutePath, env["TEMP"])
@@ -31,7 +31,7 @@ class TempEnvTest {
 
     @Test
     fun `TMPDIR points at the app-private directory rather than the root tmp`() {
-        val dir = File("/data/user/0/com.example.iperfdroid/cache/tmp")
+        val dir = File("/data/user/0/top.c8g.iperf_droid/cache/tmp")
         val tmpdir = IperfRunner.tempEnv(dir)["TMPDIR"]!!
         // The path must fall inside the app-private directory, not the misleading root /tmp
         assertTrue(tmpdir.endsWith("tmp"))

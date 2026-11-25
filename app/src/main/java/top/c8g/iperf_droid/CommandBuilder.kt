@@ -1,4 +1,4 @@
-package com.example.iperfdroid
+package top.c8g.iperf_droid
 
 /**
  * iperf3 command-line enhancements (pure Kotlin, no Android dependencies, so it is easy to

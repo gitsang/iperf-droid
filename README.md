@@ -11,7 +11,7 @@ A graphical iperf3 tool for Android mobile and TV.
 | Item       | Details                                  |
 | ---------- | ---------------------------------------- |
 | App name   | iperf-droid                              |
-| Package    | `com.example.iperfdroid`                 |
+| Package    | `top.c8g.iperf_droid`                 |
 | Minimum    | Android 5.0 (API 21)                     |
 | Target     | Android 14 (API 34)                      |
 | Stack      | Kotlin + AndroidX ConstraintLayout       |

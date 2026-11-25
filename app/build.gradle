@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.iperfdroid'
+    namespace 'top.c8g.iperf_droid'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.iperfdroid"
+        applicationId "top.c8g.iperf_droid"
         minSdk 21
         targetSdk 34
         versionCode 2

@@ -1,4 +1,4 @@
-package com.example.iperfdroid
+package top.c8g.iperf_droid
 
 import android.os.Bundle
 import android.os.Handler

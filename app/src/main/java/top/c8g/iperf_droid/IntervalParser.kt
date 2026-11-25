@@ -1,4 +1,4 @@
-package com.example.iperfdroid
+package top.c8g.iperf_droid
 
 /**
  * Parses the live rate from an iperf3 text output line.

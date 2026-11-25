@@ -1,4 +1,4 @@
-package com.example.iperfdroid
+package top.c8g.iperf_droid
 
 /**
  * Command-line argument splitting (pure Kotlin, no Android dependencies, so it is easy to unit

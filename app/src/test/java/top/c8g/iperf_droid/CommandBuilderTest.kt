@@ -1,4 +1,4 @@
-package com.example.iperfdroid
+package top.c8g.iperf_droid
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
