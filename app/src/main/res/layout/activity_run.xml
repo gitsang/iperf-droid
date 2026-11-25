@@ -12,6 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/screen_margin"
         android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:textColor="@color/text_primary"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -31,41 +34,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvRunTitle" />
 
-    <TextView
+    <!-- Stop and back-home are icons like every other action in the app. Centred on the title box
+         so they sit on the same optical line as the title text. -->
+    <ImageView
         android:id="@+id/btnStop"
-        android:layout_width="wrap_content"
-        android:layout_height="46dp"
-        android:layout_marginEnd="8dp"
-        android:maxWidth="150dp"
-        android:background="@drawable/bg_focusable_chip"
+        android:layout_width="@dimen/icon_button_size"
+        android:layout_height="@dimen/icon_button_size"
+        android:layout_marginEnd="2dp"
+        android:background="@drawable/bg_icon_button"
+        android:contentDescription="@string/action_stop"
         android:focusable="true"
-        android:gravity="center"
-        android:paddingStart="22dp"
-        android:paddingEnd="22dp"
-        android:text="@string/action_stop"
-        android:textColor="@color/text_primary"
-        android:textSize="17sp"
-        android:maxLines="1"
-        app:layout_constraintBaseline_toBaselineOf="@id/tvRunTitle"
+        android:padding="@dimen/icon_button_padding"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_stop"
+        app:layout_constraintBottom_toBottomOf="@id/tvRunTitle"
         app:layout_constraintEnd_toStartOf="@id/btnBackHome"
         app:layout_constraintTop_toTopOf="@id/tvRunTitle" />
 
-    <TextView
+    <ImageView
         android:id="@+id/btnBackHome"
-        android:layout_width="wrap_content"
-        android:layout_height="46dp"
-        android:maxWidth="170dp"
+        android:layout_width="@dimen/icon_button_size"
+        android:layout_height="@dimen/icon_button_size"
         android:layout_marginEnd="@dimen/screen_margin_end"
-        android:background="@drawable/bg_focusable_chip"
+        android:background="@drawable/bg_icon_button"
+        android:contentDescription="@string/action_back_home"
         android:focusable="true"
-        android:gravity="center"
-        android:paddingStart="22dp"
-        android:paddingEnd="22dp"
-        android:text="@string/action_back_home"
-        android:textColor="@color/text_primary"
-        android:textSize="17sp"
-        android:maxLines="1"
-        app:layout_constraintBaseline_toBaselineOf="@id/tvRunTitle"
+        android:padding="@dimen/icon_button_padding"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_home"
+        app:layout_constraintBottom_toBottomOf="@id/tvRunTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/tvRunTitle" />
 

@@ -23,9 +23,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Settings entry in the top-right corner: an icon, so it does not compete with the title for
-         width on a narrow screen. Kept top-aligned with the title rather than baseline-aligned,
-         because a drawable has no text baseline. -->
+    <!-- Settings entry in the top-right corner. Centred on the title's box rather than aligned to
+         its top: an ImageView has no text baseline, and top-aligning a 48dp button against a ~28dp
+         line of text leaves the icon visually low. -->
     <ImageView
         android:id="@+id/btnConfig"
         android:layout_width="@dimen/icon_button_size"
@@ -38,6 +38,7 @@
         android:scaleType="fitCenter"
         android:src="@drawable/ic_settings"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/tvHeaderTitle"
         app:layout_constraintTop_toTopOf="@id/tvHeaderTitle" />
 
     <androidx.recyclerview.widget.RecyclerView

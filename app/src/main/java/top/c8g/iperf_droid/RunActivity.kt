@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.KeyEvent
+import android.widget.ImageView
 import android.widget.ScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -108,11 +109,11 @@ class RunActivity : AppCompatActivity(), IperfRunner.Callback {
         val effective = CommandBuilder.withRealtimeOutput(ArgsParser.parse(args))
         tvCmd.text = "iperf3 ${CommandBuilder.display(effective)}"
 
-        findViewById<TextView>(R.id.btnStop).setOnClickListener {
+        findViewById<ImageView>(R.id.btnStop).setOnClickListener {
             job?.cancel()
             append(getString(R.string.run_stopped))
         }
-        findViewById<TextView>(R.id.btnBackHome).setOnClickListener { finish() }
+        findViewById<ImageView>(R.id.btnBackHome).setOnClickListener { finish() }
 
         append(getString(R.string.run_start, CommandBuilder.display(effective)))
         job = runner.run(args, this)
