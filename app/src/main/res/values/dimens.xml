@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Defaults: TVs and tablets. Wide margins so the UI does not hug the bezel. -->
+    <dimen name="screen_margin">48dp</dimen>
+    <dimen name="screen_margin_end">40dp</dimen>
+    <dimen name="grid_padding">40dp</dimen>
+    <dimen name="title_size">30sp</dimen>
+</resources>

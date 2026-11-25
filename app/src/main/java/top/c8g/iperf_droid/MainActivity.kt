@@ -29,9 +29,17 @@ class MainActivity : AppCompatActivity() {
         recycler = findViewById(R.id.recyclerShortcuts)
         emptyView = findViewById(R.id.tvEmpty)
 
-        recycler.layoutManager = GridLayoutManager(this, 4)
+        recycler.layoutManager = GridLayoutManager(this, spanCount())
         recycler.adapter = adapter
         recycler.setHasFixedSize(true)
+
+        // A rotation changes how many cards fit per row, so rebuild the grid with the new width
+        recycler.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
+            val span = spanCount()
+            (recycler.layoutManager as? GridLayoutManager)?.let {
+                if (it.spanCount != span) it.spanCount = span
+            }
+        }
 
         findViewById<TextView>(R.id.btnConfig).setOnClickListener {
             startActivity(Intent(this, ConfigActivity::class.java))
@@ -48,6 +56,15 @@ class MainActivity : AppCompatActivity() {
         } else {
             findViewById<TextView>(R.id.btnConfig).requestFocus()
         }
+    }
+
+    /**
+     * Cards per row, derived from the available width rather than hard-coded to 4. A phone in
+     * portrait only fits one or two columns; a TV in landscape fits four.
+     */
+    private fun spanCount(): Int {
+        val widthDp = resources.configuration.screenWidthDp
+        return (widthDp / CARD_MIN_WIDTH_DP).coerceAtLeast(1)
     }
 
     private inner class ShortcutAdapter : RecyclerView.Adapter<ShortcutAdapter.VH>() {
@@ -94,5 +111,13 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    companion object {
+        /**
+         * Narrowest a card may get before its two lines of text look cramped. 240dp keeps a
+         * 1080p TV at the original four columns while a phone in portrait falls back to one.
+         */
+        private const val CARD_MIN_WIDTH_DP = 240
     }
 }
